@@ -7,77 +7,164 @@
 <head>
     <title>Seller Dashboard</title>
     <style>
-        body {
-            font-family: Arial, sans-serif;
-            margin: 0;
-            padding: 0;
-            background-color: #f8f9fa;
-            color: #333;
-        }
-        h1, h2 {
-            text-align: center;
-            color: #555;
-        }
-        nav {
-            background-color: #007bff;
-            padding: 10px;
-            text-align: center;
-        }
-        nav ul {
-            list-style: none;
-            padding: 0;
-            margin: 0;
-            display: flex;
-            justify-content: center;
-            gap: 20px;
-        }
-        nav ul li {
-            display: inline;
-        }
-        nav ul li a {
-            text-decoration: none;
-            color: white;
-            font-weight: bold;
-            padding: 5px 10px;
-        }
-        nav ul li a:hover {
-            background-color: #0056b3;
-            border-radius: 5px;
-        }
-        table {
-            width: 80%;
-            margin: 20px auto;
-            border-collapse: collapse;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-        }
-        table th, table td {
-            padding: 10px;
-            text-align: center;
-        }
-        table th {
-            background-color: #007bff;
-            color: white;
-            font-weight: bold;
-        }
-        table tr:nth-child(even) {
-            background-color: #f2f2f2;
-        }
-        table tr:hover {
-            background-color: #e9ecef;
-        }
-        table td img {
-            width: 50px;
-            height: auto;
-            border-radius: 5px;
-        }
-        .actions a {
-            text-decoration: none;
-            color: #007bff;
-            font-weight: bold;
-        }
-        .actions a:hover {
-            text-decoration: underline;
-        }
+		:root {
+		    --primary-color: #ff3f6c;
+		    --secondary-color: #f5f5f5;
+		    --text-color: #282c3f;
+		    --background-color: #f8f9fa;
+		    --hover-color: #ff1744;
+		    --border-color: #e0e0e0;
+		}
+
+		* {
+		    margin: 0;
+		    padding: 0;
+		    box-sizing: border-box;
+		}
+
+		body {
+		    font-family: 'Roboto', Arial, sans-serif;
+		    background-color: var(--background-color);
+		    color: var(--text-color);
+		    line-height: 1.6;
+		}
+
+		h1, h2 {
+		    text-align: center;
+		    color: var(--primary-color);
+		    margin: 30px 0;
+		    font-weight: 700;
+		}
+
+		h1 {
+		    font-size: 28px;
+		}
+
+		h2 {
+		    font-size: 24px;
+		}
+
+		nav {
+		    background-color: var(--primary-color);
+		    padding: 15px 0;
+		    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+		}
+
+		nav ul {
+		    list-style: none;
+		    display: flex;
+		    justify-content: center;
+		    gap: 30px;
+		}
+
+		nav ul li a {
+		    text-decoration: none;
+		    color: white;
+		    font-weight: 600;
+		    padding: 10px 15px;
+		    border-radius: 4px;
+		    transition: background-color 0.3s ease;
+		}
+
+		nav ul li a:hover {
+		    background-color: var(--hover-color);
+		}
+
+		table {
+		    width: 90%;
+		    max-width: 1200px;
+		    margin: 30px auto;
+		    border-collapse: separate;
+		    border-spacing: 0;
+		    background-color: white;
+		    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+		    border-radius: 8px;
+		    overflow: hidden;
+		}
+
+		table th, table td {
+		    padding: 12px 15px;
+		    text-align: center;
+		    border-bottom: 1px solid var(--border-color);
+		}
+
+		table th {
+		    background-color: var(--primary-color);
+		    color: white;
+		    font-weight: 600;
+		    text-transform: uppercase;
+		    letter-spacing: 0.5px;
+		}
+
+		table tr:last-child td {
+		    border-bottom: none;
+		}
+
+		table tr:nth-child(even) {
+		    background-color: #f9f9f9;
+		}
+
+		table tr:hover {
+		    background-color: #f0f0f0;
+		    transition: background-color 0.3s ease;
+		}
+
+		table td img {
+		    width: 60px;
+		    height: 60px;
+		    object-fit: cover;
+		    border-radius: 6px;
+		    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+		}
+
+		.actions {
+		    display: flex;
+		    justify-content: center;
+		    gap: 15px;
+		}
+
+		.actions a {
+		    text-decoration: none;
+		    color: var(--primary-color);
+		    font-weight: 600;
+		    padding: 5px 10px;
+		    border-radius: 4px;
+		    transition: background-color 0.3s ease, color 0.3s ease;
+		}
+
+		.actions a:first-child {
+		    color: var(--primary-color);
+		}
+
+		.actions a:last-child {
+		    color: #dc3545;
+		}
+
+		.actions a:hover {
+		    background-color: rgba(255, 63, 108, 0.1);
+		}
+
+		.actions a:last-child:hover {
+		    background-color: rgba(220, 53, 69, 0.1);
+		}
+
+		@media (max-width: 768px) {
+		    table {
+		        width: 95%;
+		        font-size: 14px;
+		    }
+
+		    nav ul {
+		        flex-direction: column;
+		        align-items: center;
+		        gap: 10px;
+		    }
+
+		    table td img {
+		        width: 40px;
+		        height: 40px;
+		    }
+		}
     </style>
 </head>
 <body>
